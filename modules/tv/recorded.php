@@ -102,7 +102,7 @@
                 continue;
             if ($_REQUEST['recgroup'] && $_REQUEST['recgroup'] != $record[28])
                 continue;
-            if ($_REQUEST['targettime'] && ( $_REQUEST['targettime'] < $record[12] )) //|| $_REQUEST['targettime'] > $record[13] )  )
+            if ($_REQUEST['targettime'] && ( $_REQUEST['targettime'] < $record[12] || $_REQUEST['targettime'] > $record[13] )  )
                 continue;
 
         // Hide LiveTV recordings from the default view
