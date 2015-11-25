@@ -30,7 +30,7 @@
     else
         $recgroup_cols = 0;
 
-// Setup for grouping by various sort orders
+// Setup for grouping by various sort orders 
     $group_field = $_SESSION['recorded_sortby'][0]['field'];
     if ($group_field == "")
         $group_field = "airdate";

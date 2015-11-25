@@ -61,7 +61,7 @@
 // Parse the program list
     $warning    = NULL;
     $recordings = MythBackend::find()->queryProgramRows('QUERY_RECORDINGS Unsorted');
-    $sample_record = NULL;
+    $sample_record = NULL; 
     while (true) {
         $Total_Used     = 0;
         $Total_Time     = 0;
