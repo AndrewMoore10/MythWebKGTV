@@ -57,7 +57,7 @@
     }
 
 </script>
-<div id="debug_div" style="display: none"><?php echo $sample_record ?></div>
+<div id="debug_div" style="display: none"><?php print_r $sample_record ?></div>
 <form id="change_title" action="<?php echo root_url ?>tv/recorded" method="get">
 <table id="title_choices" class="commandbox commands" border="0" cellspacing="0" cellpadding="4">
 <tr>
