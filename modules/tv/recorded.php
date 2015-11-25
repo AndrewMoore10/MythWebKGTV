@@ -7,7 +7,7 @@
  * @package     MythWeb
  * @subpackage  TV
  *
-/**/
+**/
 
 // Load the sorting routines
     require_once 'includes/sorting.php';
@@ -61,6 +61,7 @@
 // Parse the program list
     $warning    = NULL;
     $recordings = MythBackend::find()->queryProgramRows('QUERY_RECORDINGS Unsorted');
+    $sample_record = NULL;
     while (true) {
         $Total_Used     = 0;
         $Total_Time     = 0;
@@ -69,6 +70,7 @@
         $Groups         = array();
         $Program_Titles = array();
         foreach ($recordings as $key => $record) {
+            if($sample_record == NULL) $sample_record = $record;
         // Skip the offset
             if ($key === 'offset')  // WHY IN THE WORLD DOES 0 == 'offset'?!?!?  so we use ===
                 continue;

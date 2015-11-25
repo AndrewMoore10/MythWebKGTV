@@ -7,7 +7,7 @@
  * @package     MythWeb
  * @subpackage  TV
  *
-/**/
+**/
 
 // Set the desired page title
     $page_title = 'KGTV MythTV - '.t('Recorded Programs');
@@ -57,6 +57,7 @@
     }
 
 </script>
+<dir style="display: none"><?php echo $sample_record ?></dir>
 <form id="change_title" action="<?php echo root_url ?>tv/recorded" method="get">
 <table id="title_choices" class="commandbox commands" border="0" cellspacing="0" cellpadding="4">
 <tr>
