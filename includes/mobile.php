@@ -33,20 +33,11 @@
  * Return true if the user agent is mobile device. Otherwise return false.
  * The user agent is determined based on the return value of getScreenSize()
  * which is false if the user agent is not a mobile device.
- * 
+ *
  * @return true or false
  */
-function isMobileUser() { 
-    
-   $ua=$_SERVER['HTTP_USER_AGENT']; 
-   if(preg_match('/Mobile|iPhone|iPod/',$ua)){
-       if(preg_match('/iPad/',$ua)){ // exclude iPad
-        return false;
-       }
-       else return true;
-   }
-   else return false;
-  //return (getScreenSize() === false) ? false : true;
+function isMobileUser() {
+  return (getScreenSize() === false) ? false : true;
 }
 
 

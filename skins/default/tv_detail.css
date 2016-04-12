@@ -1,11 +1,21 @@
-/*#x-info {
+/*
+ * Table around all program info (left column)
+/*/
+
+#x-info {
     float:              left;
     padding:            0px;
     width:              45em;
     margin:             10px 0px 10px 10px;
     background-color:   #101a29;
     color:              #E0E0FF;
-}*/
+    border:             1px solid #9090B0;
+}
+
+/*
+ * This div contains the program overview:
+ * channel/title/subtitle/time/description
+/*/
 
 .x-channel {
     width:              8em;
@@ -13,6 +23,8 @@
     vertical-align:     middle;
     background-color:   #202a49;
     white-space:        nowrap;
+    border-right:       1px solid #9090B0;
+    border-bottom:      1px solid #9090B0;
 }
 .x-channel img {
     position:           relative;
@@ -33,6 +45,7 @@
 
 #x-title {
     padding:            .2em .5em;
+    border-bottom:      1px solid #9090B0;
 }
 #x-title a {
     font-size:      175% !important;
@@ -41,17 +54,31 @@
 
 #x-time {
     margin-top:     .2em;
+    color:          #E0E0FF;
     white-space:    nowrap;
 }
 #x-description {
     padding:        .5em;
+    border-bottom:  1px solid #9090B0;
 }
 #x-progflags td {
     padding:        .5em;
+    border-bottom:  1px solid #9090B0;
 }
 #x-progflags img {
     margin-right:   .3em;
 }
+#x-progflags a img {
+    border:         1px solid transparent;
+}
+#x-progflags a:hover img {
+    border:         1px solid #F0F000;
+}
+
+#x-status {
+    background-color:   #102923;
+}
+
 
 #x-status th {
     vertical-align:     top;
@@ -59,9 +86,11 @@
     text-align:         right;
     padding:            .25em;
     white-space:        nowrap;
+    border-top:         1px solid #9090B0;
 }
 #x-status td {
     padding:            .25em;
+    border-top:         1px solid #9090B0;
 }
 #x-status td a {
     float:              left;
@@ -69,17 +98,26 @@
     font-weight:        bold;
     border:             1px solid #7b8;
     padding:            .15em .5em;
+    background-color:   #263;
+}
+#x-status td a:hover {
+    border:             1px solid #9da;
+    background-color:   #485;
 }
 
+#x-info .x-extras {
+}
 #x-info .x-extras th {
     vertical-align: top;
     font-weight:    normal;
     text-align:     right;
     padding:        .25em;
     white-space:    nowrap;
+    border-top:      1px solid #202933;
 }
 #x-info .x-extras td {
     padding:        .25em;
+    border-top:      1px solid #202933;
 }
 
 #x-conflicts th {
@@ -88,15 +126,19 @@
     text-align:         right;
     white-space:        nowrap;
     padding:            .5em .25em;
+    border-top:         1px solid #9090B0;
 }
 #x-conflicts td {
     padding:            .25em;
     padding-bottom:     0;
+    border-top:         1px solid #9090B0;
 }
 #x-conflicts td a {
     display:            block;
     padding:            .15em .25em;
     margin-bottom:      .25em;
+}
+#x-conflicts {
 }
 
 #x-info .x-links th {
@@ -105,10 +147,12 @@
     text-align:         right;
     white-space:        nowrap;
     padding:            .4em .25em;
+    border-top:         1px solid #9090B0;
 }
 #x-info .x-links td {
     padding:            .25em;
     padding-bottom:     0;
+    border-top:         1px solid #9090B0;
 }
 #x-info .x-links td a {
     display:            block;
@@ -117,17 +161,30 @@
 }
 
 #x-downloads {
-/*    float:              left;*/
+    float:              left;
     padding:            0px;
     min-width:          350px;
-/*    max-width:          500px;*/
+    max-width:          500px;
     margin:             10px 0px 10px 10px;
+    background-color:   #101a29;
+    color:              #E0E0FF;
+    border:             1px solid #9090B0;
 }
 #x-downloads img {
     margin-right:       .3em;
 }
+#x-downloads a img {
+    border:             1px solid transparent;
+}
+#x-downloads a {
+    border:             1px solid transparent;
+}
+#x-downloads a:hover img {
+    border:             1px solid #F0F000;
+}
 #x-downloads div.x-pixmap {
     padding:            1em 1em 0em 1em;
+    background-color:   black;
     text-align:         center;
 }
 #x-downloads div.x-pixmap a.x-pixmap {
@@ -136,6 +193,7 @@
 
 #x-downloads div.x-links {
     padding:            .5em;
+    background-color:   black;
     text-align:         center;
 }
 
@@ -149,17 +207,29 @@
     position:           relative;
     top:                10px;
 }
+#x-downloads div.x-links a:hover img {
+    border:             1px solid transparent;
+}
 #x-downloads div.x-links a:hover {
+    background-color:   #121;
+    border:             1px solid #F0F000;
     text-decoration:    none;
 }
 #x-downloads div.x-jobs {
+    border-top:         1px solid #9090B0;
     padding:            .5em;
 }
 
 #x-downloads div.x-jobs a {
     margin-right:       .5em;
     font-weight:        bold;
+    border:             1px solid #7b8;
     padding:            .15em .5em;
+    background-color:   #263;
+}
+#x-downloads div.x-jobs a:hover {
+    border:             1px solid #9da;
+    background-color:   #485;
 }
 
 #x-downloads div.x-jobs ul {
@@ -189,217 +259,49 @@
 }
 
 #x-downloads div.x-frontends ul li a {
+    background-color:   #226633;
+    border:             1px solid #77BB88;
     font-weight:        bold;
     margin-right:       0.5em;
     padding:            0.15em 0.5em;
 }
 
 #x-downloads div.x-frontends ul li a:hover {
+    color:              #F0F000;
     text-decoration:    underline;
 }
 
-#content html{
-    background-color:                   #c5d8e9;
-    -moz-border-radius:                 8px;
-    -webkit-border-radius:              8px;
-    -moz-box-shadow:                    1px 1px 5px #999;
-    -webkit-box-shadow:                 1px 1px 5px #999;
-    box-shadow:                         1px 1px 5px #999;
-    width:                              auto !important;
-    padding-bottom:                     1em;
-    margin-left:                        1em;
-    margin-right:                       1em;
-    margin-bottom:                      3em;
+#metadata-home-page {
+    margin-left:        20px;
 }
 
-#schedule {
-    position: absolute;
-    left:1em;
-    top:10em;
-    width:                              auto !important;
-    max-width:                          48%;
+#feelings div {
+    float: right;
+    height: 24px;
+    width: 24px;
+    margin-right: 1em;
 }
 
-#div-x-info {
-    position:                           static;
-    /*right:                              0em;*/
-    -moz-border-radius:                 8px;
-    -webkit-border-radius:              8px;
-    -moz-box-shadow:                    1px 1px 5px #999;
-    -webkit-box-shadow:                 1px 1px 5px #999;
-    box-shadow:                         1px 1px 5px #999;
-    background-color:                   #c5d8e9;
-    padding-bottom:                     1em;
-    margin-left:                        1em;
-    margin-right:                       1em;
-    margin-bottom:                      3em;
-    margin : auto;
-    width:                              auto !important;
-    max-width:                          800px;
-}
-/*
-#x-info {
-    width:                              auto !important;
-    margin-right:                       1em;
-    background-color:                   #c5d8e9;
-    color:                              #000000;
-    border:                             none;
-}*/
-
-#x-info *,
-#x-progflags,
-.x-extras
-{
-    border:                             none;
+#feelings .like {
+    background-image: url('img/feelings/like-inactive.png');
 }
 
-.x-channel {
-    background-color:                   transparent;
-    border:                             none;
+#feelings .like.active, #feelings .like:hover {
+    background-image: url('img/feelings/like-active.png');
 }
 
-.x-channel a img {
-    -moz-border-radius:                 8px;
-    -webkit-border-radius:              8px;
-    -moz-box-shadow:                    1px 1px 5px #999;
-    -webkit-box-shadow:                 1px 1px 5px #999;
-    box-shadow:                         1px 1px 5px #999;
+#feelings .meh {
+    background-image: url('img/feelings/meh-inactive.png');
 }
 
-#x-title {
-    border:                             none;
-    color:                              #000000;
-    -moz-border-radius:                 8px;
-    -webkit-border-radius:              8px;
-    -moz-box-shadow:                    1px 1px 5px #999;
-    -webkit-box-shadow:                 1px 1px 5px #999;
-    box-shadow:                         1px 1px 5px #999;
+#feelings .meh.active, #feelings .meh:hover {
+    background-image: url('img/feelings/meh-active.png');
 }
 
-#x-status a,
-.x-jobs a,
-.x-frontends a,
-#content input
-{
-    color:              #666666;
-    background-image:   url('./img/grey_fade.jpg');
-    border:             1px #666666;
-    margin-right:       .5em;
-    margin-left:        .5em;
-    -moz-border-radius:     8px;
-    -webkit-border-radius:  8px;
-    text-decoration:        none;
-    -moz-box-shadow:                    1px 1px 5px #999;
-	-webkit-box-shadow:                 1px 1px 5px #999;
-    box-shadow:                         1px 1px 5px #999;
+#feelings .dislike {
+    background-image: url('img/feelings/dislike-inactive.png');
 }
 
-#x-status a:hover,
-.x-jobs a:hover,
-.x-frontends a:hover,
-#content input:hover
-{
-    color:              #FFFFFF;
-    background-image:   url('./img/blue_fade.jpg');
-    border:             1px #666666;
-    text-decoration:    none;
-}
-#content input{
-    padding:4px 10px 4px 10px;
-}
-#content input[type="text"]{
-    border-radius: 0;
-    background-image:   url('./img/blue_fade.jpg');
-    color:              #FFFFFF;
-}
-
-#x-downloads {
-    -moz-border-radius:                 8px;
-    -webkit-border-radius:              8px;
-    -moz-box-shadow:                    1px 1px 5px #999;
-    -webkit-box-shadow:                 1px 1px 5px #999;
-    box-shadow:                         1px 1px 5px #999;
-    background-color:                   #c5d8e9;
-    padding-right:                        1em;
-    padding-top:                        1em;
-    padding-bottom:                     1em;
-    margin-left:                        1em;
-    margin-right:                       1em;
-    margin : auto;
-    margin-bottom:                      3em;
-    width:                              90% !important;
-    max-width:                          800px;
-}
-
-#x-downloads div.x-pixmap {
-    text-align: center;
-    vertical-align: middle;
-    margin: auto;
-}
-
-#x-downloads div.x-links {
-    margin-top: .5em;
-    width: 100%;
-}
-
-div.x-links a {
-    margin-right: .25em !important;
-    margin-left: .25em !important;
-}
-
-#exportTable td {
-}
-#exportTable td.lbtext a{
-    top:0px;
-}
-#exportTable td.lbtext{
-    text-align: right;
-}
-#exportTable td.lbexport a{
-    top:0px;
-    border:solid 1px;
-}
-#exportTable td.lbexport{
-    text-align: center;
-}
-#exportBG{
-    
-    background: rgba(0,0,0,.5);
-    z-index: 98;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    position:fixed;
-    display:none;
-}
-#exportWindow{
-    background-color: green;
-    opacity: 1.0;
-    z-index: 99;
-    left:40%;
-    top:40%;
-    position:absolute;
-    width:300px;
-    height: 150px;
-    border-radius: 20px;
-    padding: 10px;
-    box-shadow:                         1px 1px 5px #999;
-    background-color:                   #c5d8e9;
-}
-
-#exportWindow table{
-    width:100%;
-}
-
-#exportWindow table td{
-    width:50%;
-}
-
-#exportWindow table td select{
-    width:100%;
-}
-
-#videoPlayer {
-    width:95%;
+#feelings .dislike.active, #feelings .dislike:hover {
+    background-image: url('img/feelings/dislike-active.png');
 }

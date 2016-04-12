@@ -24,7 +24,7 @@
     elseif (isset($_REQUEST['RESET_TEMPLATE']))
         $tmpl = _or($_REQUEST['RESET_TEMPLATE'], 'default');
     elseif (isMobileUser())
-        $tmpl = 'mobile';
+        $tmpl = 'wap';
     elseif (preg_match('/^(Lynx|ELinks)/i', $_SERVER['HTTP_USER_AGENT']))
         $tmpl = 'lite';
 
@@ -37,7 +37,7 @@
     if (isset($_REQUEST['RESET_SKIN']))
         $skin = _or($_REQUEST['RESET_SKIN'], 'default');
     elseif (isMobileUser())
-        $skin = 'mobile';
+        $skin = 'wap';
 
     if (!file_exists('skins/'.$skin.'/img/'))
         $skin = 'default';

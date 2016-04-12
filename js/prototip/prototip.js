@@ -208,7 +208,6 @@ var Tip = Class.create({
   },
 
   setup: function() {
-    if(typeof new Element('div', { 'class' : 'prototip' }).setStyle == "undefined") return;
     this.wrapper = new Element('div', { 'class' : 'prototip' }).setStyle({
       display: 'none', zIndex: Tips.zIndex });
     this.wrapper.identify();
@@ -305,7 +304,7 @@ var Tip = Class.create({
       }
     }.bind(this));
 
-    if (!this.eventToggle && typeof this.element.observe !== "undefined") this.element.observe(this.options.showOn, this.eventShow);
+    if (!this.eventToggle) this.element.observe(this.options.showOn, this.eventShow);
     if (this.hideTargets) this.hideTargets.invoke('observe', this.hideAction, this.eventHide);
 
     // add postion observer to moving showOn click tips

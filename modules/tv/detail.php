@@ -172,12 +172,9 @@
             switch ($_POST['record']) {
                 case rectype_once:        $type = rectype_once;        break;
                 case rectype_daily:       $type = rectype_daily;       break;
-                case rectype_channel:     $type = rectype_channel;     break;
                 case rectype_always:      $type = rectype_always;      break;
                 case rectype_weekly:      $type = rectype_weekly;      break;
                 case rectype_findone:     $type = rectype_findone;     break;
-                case rectype_finddaily:   $type = rectype_finddaily;   break;
-                case rectype_findweekly:  $type = rectype_findweekly;  break;
                 case rectype_override:    $type = rectype_override;    break;
                 case rectype_dontrec:     $type = rectype_dontrec;     break;
                 default:                  $type = 0;
@@ -269,42 +266,9 @@
     // Redirect back to the page again, but without the query string, so reloads are cleaner
         redirect_browser(root_url.'tv/detail/'.$program->chanid.'/'.$program->starttime);
     }
-// Load default settings for recpriority, autoexpire etc
     else {
-    // auto-metadata-lookup
-        if (!isset($schedule->autometadata))
-            $schedule->autometadata = setting('AutoMetadataLookup');
-    // auto-commercial-flag
-        if (!isset($schedule->autocommflag))
-            $schedule->autocommflag = setting('AutoCommercialFlag');
-    // auto-user-jobs
-        if (!isset($schedule->autouserjob1))
-            $schedule->autouserjob1 = setting('AutoRunUserJob1');
-        if (!isset($schedule->autouserjob2))
-            $schedule->autouserjob2 = setting('AutoRunUserJob2');
-        if (!isset($schedule->autouserjob3))
-            $schedule->autouserjob3 = setting('AutoRunUserJob3');
-        if (!isset($schedule->autouserjob4))
-            $schedule->autouserjob4 = setting('AutoRunUserJob4');
-    // auto-transcode
-        if (!isset($schedule->autotranscode))
-            $schedule->autotranscode = setting('AutoTranscode');
-    // transcoder
-        if (!isset($schedule->transcoder))
-            $schedule->transcoder = setting('DefaultTranscoder');
-    // recpriority
-        if (!isset($schedule->recpriority)) {
-            $schedule->recpriority = $db->query_col('SELECT recpriority from channel where chanid=?',
-                                                    $program->chanid);
-        }
-    // autoexpire
-        if (!isset($schedule->autoexpire))
-            $schedule->autoexpire = setting('AutoExpireDefault');
-    // start early / end late
-        if (!isset($schedule->startoffset))
-            $schedule->startoffset = setting('DefaultStartOffset');
-        if (!isset($schedule->endoffset))
-            $schedule->endoffset = setting('DefaultEndOffset');
+    // Load default values from Default recording rule template
+        $schedule->merge(Schedule::recording_template('Default'));
     }
 
 // Load the channel

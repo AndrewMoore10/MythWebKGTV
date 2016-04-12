@@ -151,13 +151,15 @@ class Schedule extends MythBase {
             foreach (MythBackend::find()->queryProgramRows('QUERY_GETALLPENDING', 2) as $key => $program) {
                 if ($key === 'offset')
                     continue;
-                if ($program[20] == 6)
+                if ($program[21] == 6)
                     continue;
                 // Normal entry:  $scheduledRecordings[callsign][starttime][]
-                self::$scheduledRecordings[$program[8]][$program[12]][] =& new Program($program);
+                self::$scheduledRecordings[$program[9]][$program[13]][] = new Program($program);
             }
             Cache::set('Schedule::findScheduled', self::$scheduledRecordings);
         }
+        if (is_null(self::$scheduledRecordings))
+            return array();
         return self::$scheduledRecordings;
     }
 
@@ -240,6 +242,47 @@ class Schedule extends MythBase {
     }
 
 /**
+ * Alternative constructor for returning recording templates
+ **/
+    static function recording_template($name) {
+        global $db;
+        $sched = new Schedule(NULL);
+        $data = $db->query_assoc('
+            SELECT *
+            FROM   record
+            WHERE  type = ?
+            AND    title = ?',
+            rectype_template,
+            $name.' (Template)'
+        );
+
+        $template_params = array(
+            'recpriority', 'prefinput', 'startoffset', 'endoffset',
+            'dupmethod', 'dupin', 'filter', 'inactive',
+            'profile', 'recgroup', 'storagegroup', 'playgroup', 'autoexpire',
+            'maxepisodes', 'maxnewest',
+            'autocommflag', 'autotranscode', 'transcoder',
+            'autouserjob1', 'autouserjob2', 'autouserjob3', 'autouserjob4',
+            'autometadata');
+        foreach ($template_params as $param)
+            if (isset($data[$param]))
+                $sched->$param = $data[$param];
+
+        return $sched;
+    }
+
+/**
+ * Merge values from another schedule
+ **/
+    public function merge($prog) {
+        foreach (get_object_vars($prog) as $name => $value) {
+            if (isset($value) && !isset($this->$name)) {
+                $this->$name = $value;
+            }
+        }
+    }
+
+/**
  * Save this schedule
 /**/
     public function save($new_type) {
@@ -247,7 +290,7 @@ class Schedule extends MythBase {
     // Make sure that recordid is null if it's empty
         if (empty($this->recordid)) {
             $this->recordid = NULL;
-            $this->findid   = (date('U', $this->starttime)/60/60/24) + 719528;
+            $this->findid   = Math.floor(date('U', $this->starttime)/60/60/24) + 719528;
         // Only auto-default these properties if we're not dealing with a
         // search-based recording rule, otherwise take the values we
         // received from the custom schedule input form
@@ -437,17 +480,11 @@ class Schedule extends MythBase {
             switch ($this->type) {
                 case rectype_once:       $str .= t('rectype-long: once');       break;
                 case rectype_daily:      $str .= t('rectype-long: daily');      break;
-                case rectype_channel:
-                    $channel =& Channel::find($this->chanid);
-                    $str     .= t('rectype-long: channel', $_SESSION["prefer_channum"] ? $channel->channum : $channel->callsign);
-                    break;
                 case rectype_always:     $str .= t('rectype-long: always');     break;
                 case rectype_weekly:     $str .= t('rectype-long: weekly');     break;
                 case rectype_findone:    $str .= t('rectype-long: findone');    break;
                 case rectype_override:   $str .= t('rectype-long: override');   break;
                 case rectype_dontrec:    $str .= t('rectype-long: dontrec');    break;
-                case rectype_finddaily:  $str .= t('rectype-long: finddaily');  break;
-                case rectype_findweekly: $str .= t('rectype-long: findweekly'); break;
                 default:                 $str .= t('Unknown');
             }
             $str .= "</dd>\n";
@@ -581,6 +618,7 @@ class Schedule extends MythBase {
  * prints a <select> of the various recgroups available
 /**/
     function recgroup_select(&$schedule, $name = 'recgroup') {
+        global $db;
         $this_group =& $schedule->recgroup;
         static $groups = array();
     // Load the recording groups?
@@ -588,22 +626,21 @@ class Schedule extends MythBase {
         // Default
             $groups['Default'] = t('Default');
         // Current recgroups
-            $result = mysql_query('SELECT DISTINCT recgroup FROM recorded '.
+            $sh = $db->query('SELECT DISTINCT recgroup FROM recorded '.
                 'WHERE recgroup != "LiveTV" AND recgroup != "Deleted" UNION '.
                 'SELECT DISTINCT recgroup FROM record '.
                 'WHERE recgroup != "LiveTV" AND recgroup != "Deleted" '.
                 'ORDER BY recgroup;');
 
-            while (list($group) = mysql_fetch_row($result)) {
+            while (list($group) = $sh->fetch_row()) {
                 if (empty($group) || $group == 'Default')
                     continue;
                 $groups[$group] = $group;
             }
-            mysql_free_result($result);
+            $sh->finish();
         }
     // Guess at default. Try category match etc..
         if (count($groups) > 1 && empty($this_group)) {
-            global $db;
             $program = load_one_program($schedule->starttime, $schedule->chanid, $schedule->manualid);
             $sh = $db->query('SELECT DISTINCT recgroup FROM record
                              WHERE recgroup REGEXP ? OR recgroup REGEXP ? OR recgroup REGEXP ?',
@@ -633,18 +670,19 @@ class Schedule extends MythBase {
  * prints a <select> of the various storagegroups available
 /**/
     function storagegroup_select($this_group, $name = 'storagegroup') {
+        global $db;
         static $groups = array();
     // Load the recording groups?
         if (!count($groups)) {
         // Default
             $groups['Default'] = 'Default';
         // Configured Storage Groups
-            $result = mysql_query('SELECT DISTINCT groupname FROM storagegroup');
-            while (list($group) = mysql_fetch_row($result)) {
+            $sh = $db->query('SELECT DISTINCT groupname FROM storagegroup');
+            while (list($group) = $sh->fetch_row()) {
                 $group or $group = 'Default';
                 $groups[$group]  = $group;
             }
-            mysql_free_result($result);
+            $sh->finish();
         }
     // Print the <select>
         echo "<select name=\"$name\">";

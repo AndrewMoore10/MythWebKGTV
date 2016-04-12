@@ -133,7 +133,6 @@ TextArea {
 .record_weekly      { border: 1px solid #00D000; }
 .record_timeslot    { border: 1px solid #00D000; }
 .record_once	    { border: 1px solid #00D000; }
-.record_channel	    { border: 1px solid #00D000; }
 .record_always	    { border: 1px solid #00D000; }
 .will_record	    { border: 1px solid #00D000; }
 .record_conflicting { border: 1px solid #FF0000; }
@@ -173,9 +172,9 @@ TextArea {
 .cat_Western        { background-color: #806040 }
 .cat_Unknown        { background-color: #303030 }
 
-.cat_movie          { background-color: #809090 !important; }
-.cat_series         { }
-.cat_tvshow         { }
+.type_movie         { background-color: #809090 !important; }
+.type_series        { }
+.type_tvshow        { }
 
 /* deprecated show categories that need to be integreted into the above list via regex, or have new categories created for them */
 .tv_Cine           { background-color: Blue }

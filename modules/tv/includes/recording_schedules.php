@@ -15,14 +15,11 @@
 // Constants for the recording types
     define('rectype_once',        1);
     define('rectype_daily',       2);
-    define('rectype_channel',     3);
     define('rectype_always',      4);
     define('rectype_weekly',      5);
     define('rectype_findone',     6);
     define('rectype_override',    7);
     define('rectype_dontrec',     8);
-    define('rectype_finddaily',   9);
-    define('rectype_findweekly', 10);
     define('rectype_template',   11);
 
 // Define the search types
@@ -44,14 +41,11 @@
     $RecTypes = array(
                       rectype_once       => t('rectype: once'),
                       rectype_daily      => t('rectype: daily'),
-                      rectype_channel    => t('rectype: channel'),
                       rectype_always     => t('rectype: always'),
                       rectype_weekly     => t('rectype: weekly'),
                       rectype_findone    => t('rectype: findone'),
                       rectype_override   => t('rectype: override'),
                       rectype_dontrec    => t('rectype: dontrec'),
-                      rectype_finddaily  => t('rectype: finddaily'),
-                      rectype_findweekly => t('rectype: findweekly'),
                      );
 
 // Transcoder names

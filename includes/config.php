@@ -88,12 +88,7 @@ if (!isset($_SESSION['sortby_channum']))
     $_SESSION['sortby_channum'] = 1;
 
 if (!isset($_SESSION['recorded_paging']))
-    if(isMobileUser()){
-        $_SESSION['recorded_paging'] = 10;
-    }
-    else {
-        $_SESSION['recorded_paging'] = 25;
-    }
+    $_SESSION['recorded_paging'] = null;
 
 if (!isset($_SESSION['genre_colors']))
     $_SESSION['genre_colors'] = 1;

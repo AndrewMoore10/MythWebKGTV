@@ -1,6 +1,4 @@
 ""
-" TRANSCODED"
-    TRANSKODET
 "# Tracks"
     # Lydspor
 "$1 B"
@@ -47,6 +45,8 @@
     $1 TB
 "$1 to $2"
     $1 til $2
+"$1 video"
+"$1 videos"
 "$1 wasted"
     $1 misted
 "$1 year"
@@ -149,6 +149,8 @@
     Alle kanaler
 "Any Program Type"
     Alle program typer
+"API Key"
+"API Server"
 "Append"
     Tilføj
 "Append to Current Playlist"
@@ -430,6 +432,7 @@
     Redigerer
 "Embed HTTP basic auth user name/password into stream urls"
     Integrer HTTP basic auth brugernavn/kodeord ind i stream URLs
+"Enable"
 "Enable Flash Video player for recordings."
     Aktiver Flash video afspiller for optagelser.
 "Enable Video Playback"
@@ -817,8 +820,12 @@
     Ingen tilgængelige afspilningslister
 "No recording schedules have been defined."
     Ingen optagelser er planlagt
+"No TV configured!"
+"No videos"
 "No. of recordings to keep"
     Gem antal optagelser
+"NO_TV_CONFIGURED_NOTICE_1"
+"NO_TV_CONFIGURED_NOTICE_2"
 "Non-Music Specials"
     Ikke musik specials
 "Non-Series HDTV"
@@ -943,6 +950,7 @@
     Afspilningslister
 "Please enter an IMDB number or a title to do another search"
     Indtast IMDB nummer eller titel for at søge igen
+"Please rate more shows to get more results"
 "Please wait for the pending AJAX request"
     Afventer AJAX forespørgsel
 "Plot"
@@ -1039,6 +1047,9 @@
     Seneste afspillede sange
 "recgroup"
     Optagelsesgrupper
+"Recommend Videos"
+"Recommended"
+"Recommended Programs"
 "Record Date"
     Optagelses dato
 "Record Length"
@@ -1113,8 +1124,6 @@
     Denne visning vil blive optaget.
 "rectype-long: always"
     Optag når som helst på alle kanaler.
-"rectype-long: channel"
-    Optag når som helst på kanal $1.
 "rectype-long: daily"
     Optag dette program på dette tidspunkt hver dag.
 "rectype-long: dontrec"
@@ -1133,18 +1142,12 @@
     Optag dette program på dette tidspunkt hver uge.
 "rectype: always"
     Altid
-"rectype: channel"
-    Kanal
 "rectype: daily"
     Dagligt
 "rectype: dontrec"
     Optag ikke
-"rectype: finddaily"
-    find 1 dagligt
 "rectype: findone"
     Find en
-"rectype: findweekly"
-    find 1 ugentligt
 "rectype: once"
     en enkelt gang
 "rectype: override"
@@ -1380,10 +1383,13 @@
 "There was a problem saving your playlist"
     Der var et problem med at gemme din afspilningsliste
 "TheTVDB"
+"This channel"
+"This day and time"
 "This episode"
 "This playlist is already loaded!"
     Denne afspilningsliste er alleredeåbnet!
 "This series"
+"This time"
 "This will overwrite your current, unsaved playlist. Are you sure you want to continue?"
     Dette vil overskrive din nuværende afspilningsliste. Er du sikker på du vil forsætte?
 "Thursday"
@@ -1434,6 +1440,7 @@
     Lydspor #%1 fra albummet '%s'
 "Transcode"
     Transkode
+"Transcoded"
 "transcoder"
     trankoder
 "Transcoder"

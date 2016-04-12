@@ -16,7 +16,6 @@
 .record_weekly            { border: 1px solid  #00F000; }
 .record_timeslot          { border: 1px solid  #00F000; }
 .record_once              { border: 1px solid  #00F000; }
-.record_channel           { border: 1px solid  #00F000; }
 .record_always            { border: 1px solid  #00F000; }
 .will_record              { border: 1px solid  #00F000; }
 .record_conflicting       { border: 1px solid  #FF0000; }
@@ -50,6 +49,10 @@
 .manualOverride           { color: #D03060; }
 .overlap                  { color: #FF0000; }
 
+.type_movie         { background-color: #A31418; } /*hsl(358,78%,36%)*/
+.type_series        { }
+.type_tvshow        { }
+
 .cat_Action         { background-color: #6B1E0F; } /*hsl(10,75%,24%)*/
 .cat_Adult          { background-color: #A34614; } /*hsl(21,78%,36%)*/
 .cat_Animals        { background-color: #6B400F; } /*hsl(32,75%,24%)*/
@@ -82,10 +85,6 @@
 .cat_War            { background-color: #A3144D; } /*hsl(336,78%,36%)*/
 .cat_Western        { background-color: #6B0F23; } /*hsl(347,75%,24%)*/
 .cat_Unknown        { background-color: #303030; } /*hsl(0,0%,19%)*/
-
-.cat_movie          { background-color: #A31418; !important; } /*hsl(358,78%,36%)*/
-.cat_series         { }
-.cat_tvshow         { }
 
 /* deprecated show categories that need to be integreted into the above list via regex, or have new categories created for them */
 .tv_Cine           { background-color: blue;            }

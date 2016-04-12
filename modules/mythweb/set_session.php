@@ -22,18 +22,30 @@
     // Change language?  Make sure we load the new translation file, too.
         if ($_POST['language'] && $_POST['language'] != $_SESSION['language']){
             $_SESSION['language'] = $_POST['language'];
+	    // Unset the date/time formats in session so translation can fill in the 
+	    // language specific defaults
+            unset($_SESSION['date_statusbar']);
+            unset($_SESSION['date_scheduled']);
+            unset($_SESSION['date_scheduled_popup']);
+            unset($_SESSION['date_recorded']);
+            unset($_SESSION['date_search']);
+            unset($_SESSION['date_listing_key']);
+            unset($_SESSION['date_listing_jump']);
+            unset($_SESSION['date_channel_jump']);
+            unset($_SESSION['date_job_status']);
+            unset($_SESSION['time_format']);
             Translate::find()->load_translation();
         }
 
-        //redirect_browser(module.'/'.$Path[1].'/'.$Path[2]);
+        redirect_browser(module.'/'.$Path[1].'/'.$Path[2]);
     }
 
-/**  
+/**
  * Displays a <select> of the available templates
-/**/ 
+/**/
     function template_select($name = 'tmpl', $selected = null) {
         echo '<select name="'.$name.'">';
-        foreach (array('default', 'lite', 'mobile', 'iCal') as $tmpl) { 
+        foreach (array('default', 'lite', 'kgtv') as $tmpl) {
         // Print the option
             echo '<option value="'.html_entities($tmpl).'"';
             if ($selected == $tmpl)
