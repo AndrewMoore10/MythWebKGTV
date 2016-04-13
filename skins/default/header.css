@@ -1,21 +1,35 @@
-#page_header {
-    margin: 5px;
-}
-
-#logo_box {
-}
 #mythtv_logo {
-    margin:     0px 5px;
-    padding:    5px;
-    height:     48px;
-    width:      180px;
-    float:      left;
-    text-align: center;
+    z-index:                            99;
+    position:                           absolute;
+    left:                               10px;
+    height:                             65px;
+    width:                              180px;
+    float:                              left;
+    text-align:                         center;
+    background-color:                   #f3f3f3;
+    margin-left:                        1em;
+    margin-right:                       1em;
+    margin-top:                         0px;
+    margin-bottom:                      1em;
+    padding:                            .25em;
+    padding-top:                        1.5em;
+    -moz-border-radius-bottomleft:      5px;
+    -moz-border-radius-bottomright:     5px;
+    -webkit-border-bottom-left-radius:  5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-color:                       #FFFFFF;
+    border-style:                       solid;
+    border-width:                       1px;
+    border-top-width:                   0px;
+    -moz-box-shadow:                    1px 1px 5px #999;
+	-webkit-box-shadow:                 1px 1px 5px #999;
+    box-shadow:                         1px 1px 5px #999;
 }
 
 #sections {
     white-space: nowrap;
 }
+
 #sections a {
     float:              left;
     margin:             0px 5px;
@@ -26,14 +40,14 @@
     border-bottom:      1px solid #000;
     border-left:        1px solid #79c;
     -moz-border-radius: 8px;
-    border-radius:      8px;
+    -moz-box-shadow:                    1px 1px 5px #999;
+	-webkit-box-shadow:                 1px 1px 5px #999;
+    box-shadow:                         1px 1px 5px #999;
     text-align:         center;
     height:             48px;
     width:              48px;
 }
-#sections a:hover {
-    background-color:   #458;
-}
+
 #sections a img {
     border:  none;
     display: inline !important;
@@ -50,28 +64,12 @@
     background-color:   #275;
 }
 
-#tv_link {
-}
-#music_link {
-}
-#video_link {
-}
-#weather_link {
-}
-#settings_link {
-}
-
 #extra_header {
     margin-left: 550px;
     padding:     0px 5px;
     height:      58px;
 }
 
-/*
- * IE sucks:  true-height is supposed to be height+padding+margin+border, but IE
- * doesn't add in padding, so we have to create a wrapper container and use
- * margin instead of padding to make the "padding" that we need.
- */
 #help_wrapper {
     height:             21px;
     margin-bottom:      3px;
@@ -81,15 +79,16 @@
     border-bottom:      1px solid #68b;
     border-left:        1px solid #002;
     -moz-border-radius: 6px;
-    border-radius:      6px;
     min-width:          225px;
 }
+
 #help_box {
     margin:             4px 5px 2px 5px;
     height:             15px;
     overflow:           hidden;
     white-space:        nowrap;
 }
+
 #search {
     margin-top:         2px;
     padding:            3px 5px;
@@ -100,14 +99,13 @@
     border-bottom:      1px solid #68b;
     border-left:        1px solid #002;
     -moz-border-radius: 8px;
-    border-radius:      8px;
     min-width:          225px;
     white-space:        nowrap;
 }
+
 #simple_search {
     padding-top: 1px;
 }
-
 
 #search_text {
     position:     relative;
@@ -117,11 +115,213 @@
     padding:      0px 3px;
     font-size:    9pt;
 }
+
 #search_submit {
-    position:      relative;
-    top:           1px;
-    padding-left:  .5em;
-    padding-right: .5em;
-    font-size:     9pt;
+    position:           relative;
+    top:                1px;
+    padding-left:       .5em;
+    padding-right:      .5em;
+    font-size:          9pt;
 }
 
+#sections a img {
+    display:            none !important;
+}
+
+#sections a span {
+    display:            inline !important;
+}
+
+#sections {
+    padding-left:           210px;
+    padding-top:            4px;
+    padding-bottom:         10px;
+    background-color:       #c5d8e9;
+    background-image:       url('./img/head_bord_bg.png');
+    background-repeat:      repeat-x;
+    background-position:    bottom;
+    height:                 26px;
+    text-align:             right;
+    position:               relative;
+    overflow:               hidden;
+}
+
+#sections a {
+    text-align:         center;
+    text-decoration:    none;
+    font-size:          14px;
+    font-weight:        bold;
+    outline:            none;
+    border:             none !important;
+    padding:            6px 0 0;
+    width:              80px;
+    text-align:         center;
+    text-decoration:    none;
+    margin:             0 0 0 10px;
+    height:             24px;
+    color:              #666666;
+    background-image:   url('./img/grey_fade.jpg');
+    -moz-border-radius:     8px;
+    -webkit-border-radius:  8px;
+}
+
+#sections a:hover {
+    color:              #FFFFFF;
+    background-image:   url('./img/blue_fade.jpg');
+}
+
+
+#extra_header {
+    background-color:       #e4e4e4;
+    margin:                 0px;
+    padding:                0px;
+    padding-left:           10px;
+    padding-right:          10px;
+    height:                 34px;
+    font-size:              14px;
+    font-weight:            bold;
+    border-bottom:          1px solid #C5D8E9;
+    background-image:       url('./img/head_bord_bg.png');
+    background-repeat:      repeat-x;
+    background-position:    bottom;
+    -moz-box-shadow:                    1px 1px 5px #999;
+	-webkit-box-shadow:                 1px 1px 5px #999;
+    box-shadow:                         1px 1px 5px #999;
+    overflow:               hidden;
+    margin-bottom:          1em;
+}
+
+#help_wrapper {
+    display:            none;
+}
+
+#search {
+    position:           absolute;
+    top:                0px;
+    right:              10px;
+    float:              right;
+    text-align:         right;
+    color:              #666666;
+    background-color:   #c5d8e9;
+    border:             none;
+    vertical-align:     middle;
+    font-size:          8px;
+}
+
+#search a {
+    color:              #666666;
+}
+
+#search_text {
+    vertical-align:     middle;
+    background:none repeat scroll 0 0 #FFFFFF;
+    border:1px solid #666666;
+    color:#666666;
+    font-size:12px;
+    font-variant:normal;
+    height:20px;
+    line-height:normal;
+    margin:0;
+    padding:3px 5px;
+    width:195px;
+}
+
+.submit {
+    color:              #666666;
+    background-image:   url('./img/grey_fade.jpg');
+    border:             1px #666666;
+    margin-right:       .5em;
+    margin-left:        .5em;
+    -moz-border-radius:     8px;
+    -webkit-border-radius:  8px;
+    text-decoration:        none;
+    -moz-box-shadow:                    1px 1px 5px #999;
+	-webkit-box-shadow:                 1px 1px 5px #999;
+    box-shadow:                         1px 1px 5px #999;
+}
+
+.submit:hover {
+    color:              #FFFFFF;
+    background-image:   url('./img/blue_fade.jpg');
+    border:             1px #666666;
+    text-decoration:        none;
+}
+
+#command_choices {
+    visibility:         visible !important;
+    color:              #e4e4e4;
+    background-color:   #e4e4e4;
+    font-size:          0px;
+    position:           absolute;
+    left:               210px;
+    top:                50px;
+    white-space:        nowrap;
+}
+
+#command_choices a {
+    text-align:         center;
+    text-decoration:    none;
+    font-size:          10px;
+    font-weight:        bold;
+    outline:            none;
+    border:             none !important;
+    padding-top:        6px;
+    padding-bottom:     6px;
+    padding-left:       .5em;
+    padding-right:      .5em;
+    width:              60px;
+    text-align:         center;
+    text-decoration:    none;
+    margin:             0 0 0 10px;
+    height:             22px;
+    color:              #666666;
+    background-image:   url('./img/grey_fade.jpg');
+    -moz-border-radius:                 8px;
+    -webkit-border-radius:              8px;
+    -moz-box-shadow:                    1px 1px 5px #999;
+	-webkit-box-shadow:                 1px 1px 5px #999;
+    box-shadow:                         1px 1px 5px #999;
+}
+
+#command_choices a:hover {
+    color:              #FFFFFF;
+    background-image:   url('./img/blue_fade.jpg');
+}
+
+#category_legend {
+    display:            none;
+}
+
+#command_choices_table {
+    visibility:         hidden;
+    height:             0px !important;
+    width:              0px !important;
+}
+
+#alertBanner {
+    background: rgb(255,0,0);
+    background: rgba(255,0,0,0.7);
+    position:fixed;
+    left:0;
+    top:0;
+    z-index: 999;
+    width:100%;
+    text-align: center;
+    vertical-align: middle;
+    min-height:25px;
+    max-height:800px;
+    display:none;
+    padding-top:15px;
+    font: 12pt bold;
+}
+
+#backtrace{
+    display:none;
+}
+
+img.exit {
+    width:15px;
+    position: absolute;
+    right:0px;
+    top:0px;
+}

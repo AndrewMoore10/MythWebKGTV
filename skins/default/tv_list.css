@@ -1,9 +1,3 @@
-/*
- *
- * Styles used in /tv/list
- *
-/*/
-
 .right_arrow {
     float: right;
 }
@@ -16,8 +10,10 @@
     height:             70px;
     padding:            0 !important;
     vertical-align:     middle;
-    background-color:   #202a49;
+    background-color:   #FFFFFF;
     white-space:        nowrap;
+    -moz-border-radius:     8px;
+    -webkit-border-radius:  8px;
 }
 .x-channel img {
     position:           relative;
@@ -46,10 +42,13 @@
     font-size:          150%;
     margin-top:         .25em;
     float:              left;
+    color:              #9B1919;
 }
 
 #x-jumpto {
-    float:              right;
+    position: absolute;
+    right:   1em;
+    color:              #9B1919;
 }
 #x-jumpto td {
     padding:            .35em 1em;
@@ -59,10 +58,8 @@
 #x-jumpto td.x-jumpto {
     font-size:          110%;
     font-weight:        bold;
-    border-right:       1px solid #304943;
 }
 #x-jumpto td.x-hour {
-    border-right:       1px solid #304943;
 }
 #x-jumpto td.x-hour select {
     text-align:         right;
@@ -76,15 +73,39 @@
     height:             16px;
     width:              16px;
     margin-top:         -2px;
+    background-color:   #c5d8e9;
 }
+
 #x-jumpto a {
     height:             20px;
     width:              20px;
     padding:            2px;
-    border:             1px solid #7b8;
-    background-color:   #263;
+    background-color:   #c5d8e9;
+    background-image: none !important;
 }
+
 #x-jumpto a:hover {
-    border:             1px solid #9da;
-    background-color:   #485;
+    background-image:   url('./img/blue_fade.jpg');
+}
+
+.list td {
+    -moz-border-radius:     8px;
+    -webkit-border-radius:  8px;
+}
+
+.list td.menu a.link img {
+    float: left;
+}
+
+.list td.menu {
+    text-align: left;
+}
+
+.PreviousRecording,
+.record_duplicate,
+.record_old_duplicate
+{
+    opacity: .5;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
 }

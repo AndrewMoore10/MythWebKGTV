@@ -6,18 +6,16 @@
 h1 {
     font-size:      28px;
     font-weight:    900;
-    color:          #ccc;
-    letter-spacing: 0.5em;
+    color:          #9B1919;
     margin-bottom:  30px;
-    width:          70%;
     text-align:     center;
 }
 h2 {
+    text-align:     center;
     font-size:      18px;
     font-weight:    800;
-    color:          #7c4;
+    color:          #2A90C1;
     border:         none;
-    letter-spacing: 0.3em;
     padding:        0px;
     margin-bottom:  10px;
     margin-top:     0px;
@@ -26,15 +24,21 @@ hr {
     display:none;
 }
 div.content {
-    width:              90%;
-    border-top:         1px  solid #88a;
-    border-right:       1px  solid #88a;
-    border-bottom:      1px  solid #88a;
-    border-left:        10px solid #88a;
-    padding:            10px;
-    margin-bottom:      30px;
-    -moz-border-radius: 8px 0px 0px 8px;
-    border-radius:      8px 0px 0px 8px;
+        background-color:                   #c5d8e9;
+        -moz-border-radius:                 8px;
+        -webkit-border-radius:              8px;
+        -moz-box-shadow:                    1px 1px 5px #999;
+        -webkit-box-shadow:                 1px 1px 5px #999;
+        box-shadow:                         1px 1px 5px #999;
+        padding-bottom:                     1em;
+        padding-left:                       1em;
+        padding-right:                      1em;
+        padding-top:                        1em;
+        margin-left:                        1em;
+        margin-right:                       1em;
+        margin-bottom:                      3em;
+        margin-top:                         1em;
+        width:                              auto !important;
 }
 div.schedule a {
     position:        relative;
@@ -42,30 +46,43 @@ div.schedule a {
     color:           white;
     text-decoration: none;
     padding:         .2em .8em;
-    border:          thin solid #668;
     margin-right:   280px;
     /*width:           340px;*/
+    font-weight:                    bold;
+    color: #000000;
 }
 div.schedule a span {
     display:none;
 }
 div.schedule a:hover {
-    background-color: #204670;
-    border-top:       thin solid #668;
-    border-bottom:    thin solid #668;
-    border-left:      thin solid #668;
-    cursor:           default;
+    color:              #000000;
+    background-color:   #E4E4E4;
+    background-image:   url('./img/grey_fade.jpg');
+    -moz-border-radius-topleft:     8px;
+    -moz-border-radius-bottomleft:     8px;
+    border-top-left-radius:  8px;
+    border-bottom-left-radius:     8px;
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-bottom-left-radius:  8px;
+    -moz-box-shadow:                    1px 1px 5px #999;
+	-webkit-box-shadow:                 1px 1px 5px #999;
+    box-shadow:                         1px 1px 5px #999;
 }
 div.schedule a:hover span {
     display:          block;
     position:         absolute;
-    background-color: #204670;
-    color:            white;
+    color:            #000000;
+    background-color:   #E4E4E4;
     right:            -291px;
-    margin-top:       -20px;
+    top:            0px;
     width:            280px;
     padding:          5px;
-    border:           thin dashed #88a;
+    -moz-border-radius:     8px;
+    -webkit-border-radius:  8px;
+    -moz-box-shadow:                    1px 1px 5px #999;
+	-webkit-box-shadow:                 1px 1px 5px #999;
+    box-shadow:                         1px 1px 5px #999;
+
 }
 div.diskstatus {
     /* width:  325px; */
@@ -81,4 +98,3 @@ div.loadstatus {
 .jobaborted  { color: #ff2222;  }
 .joberrored  { color: #ff4444;  }
 .jobrunning  { color: #00ff00;  }
-
